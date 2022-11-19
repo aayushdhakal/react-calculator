@@ -1,0 +1,82 @@
+.app {
+   align-items: center;
+   background-color: rgb(20, 20, 20);
+   display: flex;
+   justify-content: center;
+   margin: 0 auto;
+   max-width: fit-content;
+
+   .calculator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      // height: 100%;
+      // width: 100%;
+      padding: 4rem;
+
+      h2 {
+         display: block;
+         font-size: 3rem;
+         color: white;
+      }
+
+      .inputField {
+         // width: 100%;
+         padding: 5px;
+         font-size: 2.2rem;
+         text-align: right;
+      }
+
+      .result {
+         color: white;
+         font-size: 2rem;
+         padding: 10px;
+         text-align: right;
+         // width: 100%;
+      }
+
+      .numpad {
+         display: flex;
+         justify-content: space-between;
+
+         .inputNumber {
+            width: 100%;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            column-gap: 2rem;
+            row-gap: 1.5rem;
+            padding: 3rem;
+
+            button {
+               background-color: rgb(91, 146, 146);
+               outline: none;
+               border: none;
+               border-radius: 50%;
+               font-size: 2rem;
+               padding: 2rem;
+            }
+
+            button:nth-child(1) {
+               grid-row-start: 4;
+               grid-column-start: 2;
+            }
+         }
+
+         .inputSymbol {
+            display: flex;
+            flex-direction: column;
+            justify-content:center;
+            button {
+               background-color: rgb(158, 212, 133);
+               border: none;
+               font-size: 2rem;
+               outline: none;
+               padding: 2rem;
+               text-align: center;
+               margin-top: 2rem;
+            }
+         }
+
+      }
+   }
+}

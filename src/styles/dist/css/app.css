@@ -1,0 +1,110 @@
+.app {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #141414;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
+.app .calculator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 4rem;
+}
+
+.app .calculator h2 {
+  display: block;
+  font-size: 3rem;
+  color: white;
+}
+
+.app .calculator .inputField {
+  padding: 5px;
+  font-size: 2.2rem;
+  text-align: right;
+}
+
+.app .calculator .result {
+  color: white;
+  font-size: 2rem;
+  padding: 10px;
+  text-align: right;
+}
+
+.app .calculator .numpad {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.app .calculator .numpad .inputNumber {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  -webkit-column-gap: 2rem;
+          column-gap: 2rem;
+  row-gap: 1.5rem;
+  padding: 3rem;
+}
+
+.app .calculator .numpad .inputNumber button {
+  background-color: #5b9292;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.app .calculator .numpad .inputNumber button:nth-child(1) {
+  -ms-grid-row: 4;
+      grid-row-start: 4;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+}
+
+.app .calculator .numpad .inputSymbol {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.app .calculator .numpad .inputSymbol button {
+  background-color: #9ed485;
+  border: none;
+  font-size: 2rem;
+  outline: none;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+/*# sourceMappingURL=app.css.map */
