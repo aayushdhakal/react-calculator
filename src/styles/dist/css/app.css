@@ -3,6 +3,8 @@
       -ms-flex-align: center;
           align-items: center;
   background-color: #141414;
+  -webkit-box-shadow: 0rem 0rem 2rem #fc9c4d;
+          box-shadow: 0rem 0rem 2rem #fc9c4d;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26,7 +28,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 4rem;
+  padding: 2rem;
 }
 
 .app .calculator h2 {
@@ -35,17 +37,54 @@
   color: white;
 }
 
-.app .calculator .inputField {
-  padding: 5px;
-  font-size: 2.2rem;
+.app .calculator .inputFieldNumber {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+  width: 100%;
+}
+
+.app .calculator .inputFieldNumber .inputField {
+  background-color: orange;
+  padding: 1rem .5rem;
+  font-size: 2rem;
   text-align: right;
+  width: 100%;
+  border: none;
+}
+
+.app .calculator .inputFieldNumber .inputField:focus {
+  -webkit-box-shadow: 0 0 1rem .5rem orange;
+          box-shadow: 0 0 1rem .5rem orange;
+}
+
+.app .calculator .inputFieldNumber button {
+  color: white;
+  font-size: 3rem;
+  background-color: transparent;
+  color: orange;
+  outline: none;
+  border: none;
+  border-left: 1px solid black;
+  margin: auto auto;
+}
+
+.app .calculator .inputFieldNumber button:hover {
+  color: #f1d091;
 }
 
 .app .calculator .result {
-  color: white;
-  font-size: 2rem;
+  color: grey;
+  font-size: 4rem;
   padding: 10px;
   text-align: right;
+  width: 90%;
+  border-bottom: 3px solid orange;
 }
 
 .app .calculator .numpad {
@@ -70,12 +109,17 @@
 }
 
 .app .calculator .numpad .inputNumber button {
-  background-color: #5b9292;
+  background-color: transparent;
+  color: white;
   outline: none;
   border: none;
-  border-radius: 50%;
   font-size: 2rem;
-  padding: 2rem;
+  padding: 2.5rem;
+}
+
+.app .calculator .numpad .inputNumber button:hover {
+  -webkit-box-shadow: 0 0 .5rem .5rem grey;
+          box-shadow: 0 0 .5rem .5rem grey;
 }
 
 .app .calculator .numpad .inputNumber button:nth-child(1) {
@@ -93,18 +137,23 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  margin-top: 1.4rem;
 }
 
 .app .calculator .numpad .inputSymbol button {
-  background-color: #9ed485;
+  background: transparent;
+  color: orange;
   border: none;
   font-size: 2rem;
   outline: none;
   padding: 2rem;
   text-align: center;
   margin-top: 2rem;
+}
+
+.app .calculator .numpad .inputSymbol button:hover {
+  -webkit-box-shadow: 0 0 2rem 1rem solid;
+          box-shadow: 0 0 2rem 1rem solid;
+  border-bottom: 3px solid orange;
 }
 /*# sourceMappingURL=app.css.map */

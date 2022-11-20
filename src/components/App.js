@@ -34,12 +34,20 @@ class App extends React.Component {
       }
    }
 
+   clearText(){
+      let value = document.querySelector('.inputField');
+      value.value = '';
+   }
+
    render() {
       return (
          <div className="app">
             <div className="calculator">
                <h2>Simple Calculator</h2>
-               <input type="text" className="inputField" placeholder="0" onKeyUp={this.calculateNumber} />
+               <div className="inputFieldNumber">
+                  <input type="text" className="inputField" placeholder="0" onKeyUp={this.calculateNumber} />
+                  <button onClick={this.clearText}>x</button>
+               </div>
                <div className="result">{this.state.result}</div>
                <div className="numpad">
                   <div className="inputNumber">
@@ -54,8 +62,8 @@ class App extends React.Component {
                      <button className="number" onClick={this.calculateNumber} value={8} >8</button>
                      <button className="number" onClick={this.calculateNumber} value={9} >9</button>
                      <button className="number" onClick={this.calculateNumber} value='.' >.</button>
-                     <button className="number"  value='=' >=</button>
-                     
+                     <button className="number" value='=' >=</button>
+
                   </div>
                   <div className="inputSymbol">
                      <button className="number" onClick={this.calculateNumber} value='+' >+</button>
