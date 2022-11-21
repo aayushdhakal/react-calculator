@@ -7,8 +7,10 @@ class App extends React.Component {
    constructor(props) {
       super(props)
       this.calculateNumber = this.calculateNumber.bind(this);
+      this.storeHistory = this.storeHistory.bind(this);
       this.state = {
-         result: 0
+         result: 0,
+         historyResult: []
       }
    }
 
@@ -34,14 +36,32 @@ class App extends React.Component {
       }
    }
 
-   clearText(){
+   clearText() {
       let value = document.querySelector('.inputField');
       value.value = '';
+   }
+
+   storeHistory() {
+      const inputValue = document.querySelector('.inputField');
+      const result = document.querySelector('.result');
+
+      let tempArr = this.state.historyResult;
+
+
+      if (!!inputValue.value) {
+         let value = `${inputValue.value} = ${result.textContent}`;
+         this.setState({
+            history:tempArr.push(value)
+         })
+
+         console.log(this.state.historyResult);
+      }
    }
 
    render() {
       return (
          <div className="app">
+            <ul className="calcHistory"></ul>
             <div className="calculator">
                <h2>Simple Calculator</h2>
                <div className="inputFieldNumber">
@@ -62,7 +82,7 @@ class App extends React.Component {
                      <button className="number" onClick={this.calculateNumber} value={8} >8</button>
                      <button className="number" onClick={this.calculateNumber} value={9} >9</button>
                      <button className="number" onClick={this.calculateNumber} value='.' >.</button>
-                     <button className="number" value='=' >=</button>
+                     <button className="number" value='=' onClick={this.storeHistory}>=</button>
 
                   </div>
                   <div className="inputSymbol">
