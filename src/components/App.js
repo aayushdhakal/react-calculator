@@ -2,6 +2,8 @@ import React from "react";
 import Model from 'react-modal';
 import { Link, NavLink } from 'react-router-dom';
 
+import HistoryList from "./HistoryList";
+
 class App extends React.Component {
 
    constructor(props) {
@@ -54,14 +56,19 @@ class App extends React.Component {
             history:tempArr.push(value)
          })
 
-         console.log(this.state.historyResult);
+         inputValue.value ='';
+         result.textContent = 0
       }
    }
 
    render() {
       return (
          <div className="app">
-            <ul className="calcHistory"></ul>
+            <ul className="calcHistory">
+            {this.state.historyResult.map((item,index)=>(
+               <HistoryList item={item} key={index}/>
+            ))}
+            </ul>
             <div className="calculator">
                <h2>Simple Calculator</h2>
                <div className="inputFieldNumber">

@@ -7,6 +7,24 @@
    margin: 0 auto;
    max-width: fit-content;
 
+   .calcHistory {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      &::before {
+         content: 'History';
+         font-size: 3rem;
+         color: rgb(172, 172, 172);
+      }
+
+      li{
+         list-style: '- ';
+         font-size: 2rem;
+         color: grey;
+      }
+   }
+
    .calculator {
       display: flex;
       flex-direction: column;
@@ -119,7 +137,8 @@
                text-align: center;
                margin-top: 2rem;
                transition: 0.2s ease-in all;
-               &:hover{
+
+               &:hover {
                   box-shadow: 0 0 2rem 1rem solid;
                   border-bottom: 3px solid orange;
                }
