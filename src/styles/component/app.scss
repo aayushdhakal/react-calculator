@@ -24,11 +24,28 @@
             border: none;
             color: rgb(240, 105, 105);
             font-size: 2rem;
+            position: relative;
             transition: all ease 0.3s;
 
-            &:hover{
+            &:hover {
                transform: scale(1.2);
             }
+
+            &::before {
+               content: "clear history";
+               color: white;
+               white-space: nowrap;
+               font-size: 1.4rem;
+               position: absolute;
+               transform: scale(0) translateX(-50%);
+               transition: all 0.2s ease-in;
+               padding: .3rem;
+            }
+
+            &:hover::before {
+               transform: scale(1) translateX(35%);
+            }
+
          }
 
       }
