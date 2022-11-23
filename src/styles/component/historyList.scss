@@ -1,0 +1,29 @@
+ .listItem {
+   list-style: ': ';
+   font-size: 2rem;
+   color: rgb(148, 148, 148);
+
+   p{
+      display: inline;
+   }
+
+   .pushOnInput {
+      outline: none;
+      border: none;
+      background-color: transparent;
+      font-size:3rem;
+      color: white;
+      padding:0 2px;
+      transition: all 0.3s ease-in;
+
+      &:hover{
+         padding-left:6px ;
+      }
+   }
+  
+   .removeListItem{
+      background-color: transparent;
+      border: none;
+      font-size: 1.8rem;
+   }
+ }

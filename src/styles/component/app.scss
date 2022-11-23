@@ -12,16 +12,25 @@
       top: 0;
       left: 0;
 
-      &::before {
+      .calcHistoryLists::before {
          content: 'History';
          font-size: 3rem;
          color: rgb(172, 172, 172);
       }
 
-      li{
-         list-style: '- ';
-         font-size: 2rem;
-         color: grey;
+      .calcHistoryLists {
+         .btnHistoryClear {
+            background-color: transparent;
+            border: none;
+            color: rgb(240, 105, 105);
+            font-size: 2rem;
+            transition: all ease 0.3s;
+
+            &:hover{
+               transform: scale(1.2);
+            }
+         }
+
       }
    }
 

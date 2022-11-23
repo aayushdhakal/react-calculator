@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuidv4 } from 'uuid';
 import Model from 'react-modal';
 import { Link, NavLink } from 'react-router-dom';
 
@@ -10,6 +11,9 @@ class App extends React.Component {
       super(props)
       this.calculateNumber = this.calculateNumber.bind(this);
       this.storeHistory = this.storeHistory.bind(this);
+      this.pushExp = this.pushExp.bind(this);
+      this.clearHistory = this.clearHistory.bind(this);
+      this.removeItem = this.removeItem.bind(this);
       this.state = {
          result: 0,
          historyResult: []
@@ -51,28 +55,61 @@ class App extends React.Component {
 
 
       if (!!inputValue.value) {
-         let value = `${inputValue.value} = ${result.textContent}`;
+         // let value = `${inputValue.value} = ${result.textContent}`;
+         let value = {id:uuidv4(), exp: inputValue.value, result: result.textContent }
+
          this.setState({
-            history:tempArr.push(value)
+            history: tempArr.push(value)
          })
 
-         inputValue.value ='';
+         // console.log(this.state.historyResult);
+         inputValue.value = '';
          result.textContent = 0
       }
+   }
+
+   pushExp(value) {
+      const inputField = document.querySelector('.inputField')
+      const resultField = document.querySelector('.result')
+
+      inputField.value = value.exp;
+      resultField.textContent = value.result;
+   }
+
+   clearHistory() {
+      // console.log(1);
+      this.setState({ historyResult: [] });
+   }
+
+   async removeItem(value){
+
+      const newHistoryList = this.state.historyResult.filter(element=>{
+         return element.id !== value;
+      });
+
+      await this.setState({historyResult:newHistoryList})
+      
+      console.log(this.state.historyResult)
    }
 
    render() {
       return (
          <div className="app">
-            <ul className="calcHistory">
-            {this.state.historyResult.map((item,index)=>(
-               <HistoryList item={item} key={index}/>
-            ))}
-            </ul>
+            <div className="calcHistory">
+               <ul className="calcHistoryLists">
+                  {this.state.historyResult.map((item, index) => (
+                     <HistoryList item={item} key={index} exp={this.pushExp} removeItem={this.removeItem}/>
+                  ))}
+                  {this.state.historyResult.length > 0 &&
+                  <button onClick={this.clearHistory} className="btnHistoryClear">&#10006;</button>
+                  }
+
+               </ul>
+            </div>
             <div className="calculator">
                <h2>Simple Calculator</h2>
                <div className="inputFieldNumber">
-                  <input type="text" className="inputField" placeholder="0" onKeyUp={this.calculateNumber} />
+                  <input type="text" className="inputField" placeholder="0" onChange={this.calculateNumber} />
                   <button onClick={this.clearText}>x</button>
                </div>
                <div className="result">{this.state.result}</div>
